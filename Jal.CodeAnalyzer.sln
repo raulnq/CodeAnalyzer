@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jal.CodeAnalyzer.Core.Test", "Jal.CodeAnalizer.Test\Jal.CodeAnalyzer.Core.Test.csproj", "{B036604B-8732-4B9B-99DB-05682D98321C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jal.CodeAnalyzer", "Jal.CodeAnalyzer\Jal.CodeAnalyzer\Jal.CodeAnalyzer.csproj", "{AF8189AE-2C9A-40BF-888E-9A693446A66D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jal.CodeAnalyzer.Test", "Jal.CodeAnalyzer\Jal.CodeAnalyzer.Test\Jal.CodeAnalyzer.Test.csproj", "{F36134E0-167E-47B9-82DC-BAC9979AA1E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jal.CodeAnalyzer.Vsix", "Jal.CodeAnalyzer\Jal.CodeAnalyzer.Vsix\Jal.CodeAnalyzer.Vsix.csproj", "{0A358DBD-7F1F-448D-A27F-38B91D705956}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jal.CodeAnalyzer.Core", "Jal.CodeAnalyzer.Core\Jal.CodeAnalyzer.Core.csproj", "{09E41846-E990-4147-B736-A8C11F535CD1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B036604B-8732-4B9B-99DB-05682D98321C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B036604B-8732-4B9B-99DB-05682D98321C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B036604B-8732-4B9B-99DB-05682D98321C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B036604B-8732-4B9B-99DB-05682D98321C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF8189AE-2C9A-40BF-888E-9A693446A66D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF8189AE-2C9A-40BF-888E-9A693446A66D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF8189AE-2C9A-40BF-888E-9A693446A66D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF8189AE-2C9A-40BF-888E-9A693446A66D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F36134E0-167E-47B9-82DC-BAC9979AA1E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F36134E0-167E-47B9-82DC-BAC9979AA1E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F36134E0-167E-47B9-82DC-BAC9979AA1E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F36134E0-167E-47B9-82DC-BAC9979AA1E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A358DBD-7F1F-448D-A27F-38B91D705956}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A358DBD-7F1F-448D-A27F-38B91D705956}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A358DBD-7F1F-448D-A27F-38B91D705956}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A358DBD-7F1F-448D-A27F-38B91D705956}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09E41846-E990-4147-B736-A8C11F535CD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09E41846-E990-4147-B736-A8C11F535CD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09E41846-E990-4147-B736-A8C11F535CD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09E41846-E990-4147-B736-A8C11F535CD1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

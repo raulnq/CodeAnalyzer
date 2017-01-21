@@ -1,0 +1,11 @@
+﻿namespace CodeAnalyzer.TestsSource.ExtractLocalVariable
+{
+    public class Class1
+    {
+        static void Main(string[] args)
+        {"chau"
+            var variable = "hola";
+            variable = variable + ;
+        }
+    }
+}

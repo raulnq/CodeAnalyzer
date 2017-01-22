@@ -71,12 +71,12 @@ namespace Jal.CodeAnalyzer.Test
 
         protected override CodeFixProvider GetCSharpCodeFixProvider()
         {
-            return new JalCodeAnalyzerCodeFixProvider();
+            return new ExtractLocalVariableCodeFixProvider();
         }
 
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
         {
-            return new JalCodeAnalyzerAnalyzer();
+            return new ExtractLocalVariableDiagnosticAnalyzer();
         }
     }
 }

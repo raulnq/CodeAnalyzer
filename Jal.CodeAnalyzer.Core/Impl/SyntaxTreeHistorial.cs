@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Reflection;
 using Jal.CodeAnalyzer.Core.Interfaces;
@@ -9,14 +10,14 @@ namespace Jal.CodeAnalyzer.Core.Impl
 {
     public class SyntaxTreeHistorial : ISyntaxTreeHistorial
     {
-        private readonly IDictionary<string, ISyntaxTreeItem> _syntaxTrees;
+        private readonly ConcurrentDictionary<string, ISyntaxTreeItem> _syntaxTrees;
 
         private readonly int _maxHistorialAge;
 
         public SyntaxTreeHistorial(int maxHistorialAge)
         {
             _maxHistorialAge = maxHistorialAge;
-            _syntaxTrees = new Dictionary<string, ISyntaxTreeItem>();
+            _syntaxTrees = new ConcurrentDictionary<string, ISyntaxTreeItem>();
         }
 
         private bool IsValid(CompilationUnitSyntax compilationUnitSyntax)
@@ -32,20 +33,16 @@ namespace Jal.CodeAnalyzer.Core.Impl
                 {
                     var file = compilationUnitSyntax.SyntaxTree.FilePath;
 
-                    if (_syntaxTrees.ContainsKey(file))
+                    var newSyntaxTreeItem = new SyntaxTreeItem(_maxHistorialAge);
+
+                    newSyntaxTreeItem.Add(compilationUnitSyntax);
+
+                    _syntaxTrees.AddOrUpdate(file, newSyntaxTreeItem, (key, syntaxTreeItem) =>
                     {
-                        var syntaxTree = _syntaxTrees[file];
+                        syntaxTreeItem.Add(compilationUnitSyntax);
 
-                        syntaxTree.Add(compilationUnitSyntax);
-                    }
-                    else
-                    {
-                        var syntaxTree = new SyntaxTreeItem(_maxHistorialAge);
-
-                        syntaxTree.Add(compilationUnitSyntax);
-
-                        _syntaxTrees.Add(file, syntaxTree);
-                    }
+                        return syntaxTreeItem;
+                    });
                 }
             }
         }

@@ -1,6 +1,7 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.Formatting;
 
 namespace Jal.CodeAnalyzer.Core.Impl
 {
@@ -18,7 +19,7 @@ namespace Jal.CodeAnalyzer.Core.Impl
 
             var declaration = SyntaxFactory.VariableDeclaration(typeName, SyntaxFactory.SeparatedList(new[] { declarator }));
 
-            return SyntaxFactory.LocalDeclarationStatement(SyntaxFactory.TokenList(), declaration, SyntaxFactory.Token(SyntaxKind.SemicolonToken)).WithTrailingTrivia(SyntaxFactory.Whitespace("\r\n"));
+            return SyntaxFactory.LocalDeclarationStatement(SyntaxFactory.TokenList(), declaration, SyntaxFactory.Token(SyntaxKind.SemicolonToken)).WithTrailingTrivia(SyntaxFactory.CarriageReturnLineFeed).WithAdditionalAnnotations(Formatter.Annotation);
         }
     }
 }

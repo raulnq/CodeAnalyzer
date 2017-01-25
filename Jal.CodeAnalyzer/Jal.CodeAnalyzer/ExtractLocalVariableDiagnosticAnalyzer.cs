@@ -16,7 +16,6 @@ namespace Jal.CodeAnalyzer
     public class ExtractLocalVariableDiagnosticAnalyzer : DiagnosticAnalyzer
     {
         public const string DiagnosticId = "JalCodeAnalyzer_ExtractLocalVariable";
-        public static ISyntaxTreeHistorial SyntaxTreeHistorial = new SyntaxTreeHistorial(3);
         // You can change these strings in the Resources.resx file. If you do not want your analyzer to be localize-able, you can use regular strings for Title and MessageFormat.
         // See https://github.com/dotnet/roslyn/blob/master/docs/analyzers/Localizing%20Analyzers.md for more on localization
         private static readonly LocalizableString Title = new LocalizableResourceString(nameof(Resources.ExtractLocalVariable_AnalyzerTitle), Resources.ResourceManager, typeof(Resources));
@@ -30,22 +29,14 @@ namespace Jal.CodeAnalyzer
 
         public override void Initialize(AnalysisContext context)
         {
-
             context.RegisterSyntaxNodeAction(ReportDiagnostic, SyntaxKind.ExpressionStatement);
-
-            context.RegisterSyntaxTreeAction(UpdateHistorial);
-        }
-
-        private void UpdateHistorial(SyntaxTreeAnalysisContext syntaxTreeAnalysisContext)
-        {
-            SyntaxTreeHistorial.Save(syntaxTreeAnalysisContext.Tree.GetRoot() as CompilationUnitSyntax, syntaxTreeAnalysisContext.Options);
         }
 
         private void ReportDiagnostic(SyntaxNodeAnalysisContext obj)
         {
             var incompleteMember = obj.Node as ExpressionStatementSyntax;
 
-            if (new ExtractLocalVariable(SyntaxTreeHistorial,new IdentifierNameBuilder()).DetectRefactoring(incompleteMember))
+            if (new ExtractLocalVariable(HistorialCollectorDiagnosticAnalyzer.SyntaxTreeHistorial, new IdentifierNameBuilder()).DetectRefactoring(incompleteMember))
             {
                 var diagnostic = Diagnostic.Create(Rule, incompleteMember.GetLocation());
 

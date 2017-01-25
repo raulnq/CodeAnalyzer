@@ -6,6 +6,7 @@ using Jal.CodeAnalyzer.Core.Interfaces;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.Editing;
 
 namespace Jal.CodeAnalyzer.Core.Impl
 {
@@ -123,6 +124,8 @@ namespace Jal.CodeAnalyzer.Core.Impl
         public async Task<Document> ApplyRefactoring(ExpressionStatementSyntax expressionStatementSyntax,Document document, CancellationToken cancellationToken)
         {
             var root = await document.GetSyntaxRootAsync(cancellationToken);
+
+            var documentEditor = await DocumentEditor.CreateAsync(document, cancellationToken);
 
             root = ApplyRefactoring(root, expressionStatementSyntax);
 

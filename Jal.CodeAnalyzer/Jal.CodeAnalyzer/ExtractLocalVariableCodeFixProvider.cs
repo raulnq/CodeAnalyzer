@@ -46,7 +46,7 @@ namespace Jal.CodeAnalyzer
             context.RegisterCodeFix(
                 CodeAction.Create(
                     title: Title,
-                    createChangedDocument: c => new ExtractLocalVariable(ExtractLocalVariableDiagnosticAnalyzer.SyntaxTreeHistorial, new IdentifierNameBuilder()).ApplyRefactoring(expressionStatementSyntax, context.Document, c),
+                    createChangedDocument: c => new ExtractLocalVariable(HistorialCollectorDiagnosticAnalyzer.SyntaxTreeHistorial, new IdentifierNameBuilder()).ApplyRefactoring(expressionStatementSyntax, context.Document, c),
                     equivalenceKey: Title),
                 diagnostic);
         }

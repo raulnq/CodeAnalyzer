@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ExtractLocalVariableCodeFixProvider.cs" />
+    <Compile Include="HistorialCollectorDiagnosticAnalyzer.cs" />
     <Compile Include="ExtractLocalVariableDiagnosticAnalyzer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources.Designer.cs">
